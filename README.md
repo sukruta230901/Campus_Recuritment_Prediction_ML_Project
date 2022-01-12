@@ -4,9 +4,13 @@ This repository contains 3 files:-
 2. Data set file on which ML algorithms are applied.
 3. The code section which contains all the code of various ML algorithms applied on the chosen dataset.
 
+
 Dataset File section:-
 The Dataset file is about campus recuritment data in which there are 215 entries of employees specialized in Marketing and HR and Marketing and Finance section. 
-It contains the HSC and SSC percentage, any prior work experience and whether they are placed or not. Based on these factors we tried to predict the salary of these employees.
+It contains the HSC and SSC percentage, any prior work experience and whether they are placed or not. Based on these factors I've tried to predict the salary of these employees.
+The datset was taken from kaggle site. Here's the link for the dataset:-
+https://www.kaggle.com/benroshan/factors-affecting-campus-placement
+
 
 Code Section:-
 In this section there's a detailed code of performing a Machine Learning project at undergraduate level.
