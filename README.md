@@ -18,3 +18,5 @@ Here I've performed Exploratory Data Analysis, Data Preprocessing and Visualizat
 Then after Data cleaning and formatting, I've applied Regression algorithms to train the model and predict the salary of employees.
 Regression models like - Linear Regression, Decision Tree Regressor, Random Forest Regressor and XGBoost Regressor were used in this project.
 Also after visualizing the result I've also performed cross-validation to validate my models.
+Find the complete code on this site:-
+https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
