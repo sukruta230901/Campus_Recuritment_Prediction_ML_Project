@@ -23,10 +23,8 @@
 
 # ### The goal is to predict the salary of employees using regression models 
 
+
 # ## Importing the Libraries 
-
-# In[1]:
-
 
 import pandas as pd
 import numpy as np
@@ -36,27 +34,12 @@ import seaborn as sns
 
 # ## Import the dataset 
 
-# In[2]:
-
-
 df = pd.read_csv("Placement_Data_Full_Class_1.csv")
 df.head()
 
-
-# In[3]:
-
-
 df.shape
 
-
-# In[4]:
-
-
 df.columns
-
-
-# In[5]:
-
 
 #there are 8 object data that needs to be converted
 df.info()
@@ -64,26 +47,11 @@ df.info()
 
 # # Descriptive Data Analysis 
 
-# In[6]:
-
-
 df.describe()
-
-
-# In[7]:
-
 
 df.describe(include ='object')
 
-
-# In[8]:
-
-
 df['status'].value_counts()
-
-
-# In[9]:
-
 
 df = df.drop('sl_no',axis=1)
 df['salary'] = df['salary'].fillna(0)
@@ -91,10 +59,7 @@ df.head()
 
 
 # # Data Visualization
-
-# In[10]:
-
-
+# plotting barplot
 plt.style.use('ggplot')
 plt.figure(figsize=(20,25))
 plt.subplot(4,2,1)
@@ -115,10 +80,7 @@ plt.subplot(4,2,8)
 df['status'].value_counts().plot(kind='bar',title='status')
 plt.show()
 
-
-# In[11]:
-
-
+# plotting scatter-plot
 plt.figure(figsize=(20,20))
 plt.subplot(5,2,1)
 sns.scatterplot(data=df, x="ssc_p", y="salary", hue="status")
@@ -137,9 +99,6 @@ plt.show()
 
 # ## Encoding of categorical values using Label Encoder
 
-# In[12]:
-
-
 # using label encoder beacuse the below columns are ordinal attributes
 # replaces the attributes with 0,1 and 2 in alphabetically appearing columns 
 from sklearn.preprocessing import LabelEncoder
@@ -151,9 +110,6 @@ df.head()
 
 # ## Extract the independent (input) and dependent (output) variable 
 
-# In[13]:
-
-
 # extracting independent variable
 X = df.iloc[:,:-1].values
 # extracting dependent variable
@@ -164,15 +120,8 @@ print(Y.shape)
 
 # ## Splitting the dataset into the Training and Testing sets 
 
-# In[14]:
-
-
 from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size = 0.1, random_state = 100)
-
-
-# In[15]:
-
 
 print(X_train.shape,Y_train.shape)
 print(X_test.shape,Y_test.shape)
@@ -180,10 +129,7 @@ print(X_test.shape,Y_test.shape)
 
 # # Normalization of Dataset
 
-# ## Standardize the data 
-
-# In[16]:
-
+# ## Standardize the data
 
 X_mean = X_train.mean(axis=0)
 X_std = X_train.std(axis=0)
@@ -204,9 +150,6 @@ print(X_train.shape, X_test.shape)
 
 # ## Importing Libraries 
 
-# In[17]:
-
-
 import sklearn
 import numpy as np
 import pandas as pd
@@ -224,10 +167,7 @@ from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 
 
-# ## Linear Regression 
-
-# In[18]:
-
+# ## Linear Regression
 
 l_reg = LinearRegression()
 l_reg.fit(X_train,Y_train)
@@ -235,23 +175,11 @@ l_reg.fit(X_train,Y_train)
 print("Train accuracy:", (l_reg.score(X_train,Y_train))*100)
 print("Test accuracy:", (l_reg.score(X_test,Y_test))*100)
 
-
-# In[19]:
-
-
 print(l_reg.coef_)
 print("B0 =",l_reg.intercept_)
 
-
-# In[20]:
-
-
 Y_pred = l_reg.predict(X_test)
 print(Y_test.shape, Y_pred.shape)
-
-
-# In[21]:
-
 
 r2_l = r2_score(Y_test, Y_pred)*100
 rms_l = sqrt(mean_squared_error(Y_test, Y_pred))
@@ -263,15 +191,10 @@ print(f"Mean absolute error is {mae_l}")
 
 # ## Visualizing the results 
 
-# In[22]:
-
-
 plt.style.use('fivethirtyeight') 
 plt.figure(figsize=(10,6))
-plt.scatter(l_reg.predict(X_train), l_reg.predict(X_train)-Y_train,
-            color = "green", s = 10, label = 'LR Train data') 
-plt.scatter(l_reg.predict(X_test), l_reg.predict(X_test)-Y_test,
-            color = "blue", s = 10, label = 'LR Test data') 
+plt.scatter(l_reg.predict(X_train), l_reg.predict(X_train)-Y_train, color = "green", s = 10, label = 'LR Train data') 
+plt.scatter(l_reg.predict(X_test), l_reg.predict(X_test)-Y_test, color = "blue", s = 10, label = 'LR Test data') 
 plt.hlines(y = 0, xmin = 0, xmax = 950000, linewidth = 2) 
 plt.legend(loc = 'upper right') 
 plt.title("Residual errors") 
@@ -282,25 +205,14 @@ plt.show()
 
 # ## Decision Tree Regressor
 
-# In[23]:
-
-
 d_reg = DecisionTreeRegressor()
 d_reg.fit(X_train,Y_train)
 
 print("Train accuracy:", (d_reg.score(X_train,Y_train))*100)
 print("Test accuracy:", (d_reg.score(X_test,Y_test))*100)
 
-
-# In[24]:
-
-
 Y_pred = d_reg.predict(X_test)
 print(Y_test.shape, Y_pred.shape)
-
-
-# In[25]:
-
 
 r2_d = r2_score(Y_test, Y_pred)*100
 rms_d = sqrt(mean_squared_error(Y_test, Y_pred))
@@ -312,25 +224,14 @@ print(f"Mean absolute error is {mae_d}")
 
 # ## Random Forest Regressor 
 
-# In[26]:
-
-
 r_reg = RandomForestRegressor()
 r_reg.fit(X_train,Y_train)
 
 print("Training accuracy:",(r_reg.score(X_train,Y_train))*100)
 print("Test accuracy:",(r_reg.score(X_test,Y_test))*100)
 
-
-# In[27]:
-
-
 Y_pred = r_reg.predict(X_test)
 print(Y_test.shape, Y_pred.shape)
-
-
-# In[28]:
-
 
 r2_r = r2_score(Y_test, Y_pred)*100
 rms_r = sqrt(mean_squared_error(Y_test, Y_pred))
@@ -342,25 +243,14 @@ print(f"Mean absolute error is {mae_r}")
 
 # ## XGBoost Regressor 
 
-# In[29]:
-
-
 x_reg = XGBRegressor()
 x_reg.fit(X_train,Y_train)
 
 print("Training accuracy:",(x_reg.score(X_train,Y_train))*100)
 print("Test accuracy:",(x_reg.score(X_test,Y_test))*100)
 
-
-# In[30]:
-
-
 Y_pred = x_reg.predict(X_test)
 print(Y_test.shape, Y_pred.shape)
-
-
-# In[31]:
-
 
 r2_x = r2_score(Y_test, Y_pred)*100
 rms_x = sqrt(mean_squared_error(Y_test, Y_pred))
@@ -372,12 +262,8 @@ print(f"Mean absolute error is {mae_x}")
 
 # # Evaluation Table
 
-# In[32]:
-
-
 models = pd.DataFrame({
-    'Algorithm': ['Linear Regression','Decision Tree Regressor', 
-             'Random Forest Regressor',  'XGBoost Regressor'],
+    'Algorithm': ['Linear Regression','Decision Tree Regressor', 'Random Forest Regressor',  'XGBoost Regressor'],
     'R^2 Score': [ r2_l, r2_d, r2_r, r2_x],
     'RMS Score' : [rms_l, rms_d, rms_r, rms_x],
     'MAE Score' : [mae_l, mae_d, mae_r, mae_x]
@@ -388,27 +274,16 @@ models.sort_values(by = ['R^2 Score', 'RMS Score', 'MAE Score'], ascending = Tru
 
 # # Plotting the Residual Chart
 
-# In[33]:
-
-
 plt.style.use('fivethirtyeight') 
 plt.figure(figsize=(12,8))
-plt.scatter(l_reg.predict(X_train), l_reg.predict(X_train)-Y_train,
-            color = "green", s = 20, label = 'LR Train data') 
-plt.scatter(l_reg.predict(X_test), l_reg.predict(X_test)-Y_test,
-            color = "blue", s = 20, label = 'LR Test data') 
-plt.scatter(d_reg.predict(X_train), d_reg.predict(X_train)-Y_train,
-            color = "red", s = 20, label = 'DT R Train data') 
-plt.scatter(d_reg.predict(X_test), d_reg.predict(X_test)-Y_test,
-            color = "black", s = 20, label = 'DT R Test data') 
-plt.scatter(r_reg.predict(X_train), r_reg.predict(X_train)-Y_train,
-            color = "yellow", s = 20, label = 'RF R Train data') 
-plt.scatter(r_reg.predict(X_test), r_reg.predict(X_test)-Y_test,
-            color = "pink", s = 20, label = 'RF R Test data') 
-plt.scatter(x_reg.predict(X_train), x_reg.predict(X_train)-Y_train,
-            color = "orange", s = 20, label = 'XGB R Train data') 
-plt.scatter(x_reg.predict(X_test), x_reg.predict(X_test)-Y_test,
-            color = "white", s = 20, label = 'XGB R Test data') 
+plt.scatter(l_reg.predict(X_train), l_reg.predict(X_train)-Y_train, color = "green", s = 20, label = 'LR Train data') 
+plt.scatter(l_reg.predict(X_test), l_reg.predict(X_test)-Y_test, color = "blue", s = 20, label = 'LR Test data') 
+plt.scatter(d_reg.predict(X_train), d_reg.predict(X_train)-Y_train, color = "red", s = 20, label = 'DT R Train data') 
+plt.scatter(d_reg.predict(X_test), d_reg.predict(X_test)-Y_test, color = "black", s = 20, label = 'DT R Test data') 
+plt.scatter(r_reg.predict(X_train), r_reg.predict(X_train)-Y_train, color = "yellow", s = 20, label = 'RF R Train data') 
+plt.scatter(r_reg.predict(X_test), r_reg.predict(X_test)-Y_test, color = "pink", s = 20, label = 'RF R Test data') 
+plt.scatter(x_reg.predict(X_train), x_reg.predict(X_train)-Y_train, color = "orange", s = 20, label = 'XGB R Train data') 
+plt.scatter(x_reg.predict(X_test), x_reg.predict(X_test)-Y_test, color = "white", s = 20, label = 'XGB R Test data') 
 plt.hlines(y = 0, xmin = 0, xmax = 950000, linewidth = 2) 
 plt.legend(loc = 'upper right') 
 plt.title("Residual errors") 
@@ -416,10 +291,7 @@ plt.xlabel("Salary")
 plt.ylabel("Error")
 plt.show() 
 
-
-# In[34]:
-
-
+# plotting barplot among the models for comparison
 plt.figure(figsize=(12,8))
 sns.barplot(x='Algorithm',y='R^2 Score',data=models)
 plt.show()
@@ -428,9 +300,6 @@ plt.show()
 # # Cross-Validation of Models using K-fold CV
 
 # ## Cross-Validation of Linear Regression Model
-
-# In[35]:
-
 
 # prepare the cross-validation procedure
 cv = KFold(n_splits=10, random_state=100, shuffle=True)
@@ -449,9 +318,6 @@ print(f'R^2 Score: {r2_l}')
 
 # ## Cross-Validation of Decision Tree Regressor Model
 
-# In[36]:
-
-
 # prepare the cross-validation procedure
 cv = KFold(n_splits=10, random_state=100, shuffle=True)
 # create model
@@ -468,9 +334,6 @@ print(f'R^2 Score: {r2_d}')
 
 
 # ## Cross-Validation of Random Forest Model 
-
-# In[37]:
-
 
 # prepare the cross-validation procedure
 cv = KFold(n_splits=10, random_state=100, shuffle=True)
@@ -489,9 +352,6 @@ print(f'R^2 Score: {r2_r}')
 
 # ## Cross-Validation of XGBoost Regressor Model 
 
-# In[38]:
-
-
 # prepare the cross-validation procedure
 cv = KFold(n_splits=10, random_state=100, shuffle=True)
 # create model
@@ -509,12 +369,8 @@ print(f'R^2 Score: {r2_x}')
 
 # # Analysing the cross-validation of models 
 
-# In[39]:
-
-
 models = pd.DataFrame({
-    'Algorithm': ['Linear Regression','Decision Tree Regressor', 
-             'Random Forest Regressor',  'XGBoost Regressor'],
+    'Algorithm': ['Linear Regression','Decision Tree Regressor', 'Random Forest Regressor',  'XGBoost Regressor'],
     'R^2 Score': [ r2_l, r2_d, r2_r, r2_x],
     })
 
@@ -523,10 +379,6 @@ models.sort_values(by = ['R^2 Score'], ascending = True)
 
 # # Ploting the graph
 
-# In[40]:
-
-
 plt.figure(figsize=(12,8))
 sns.barplot(x='Algorithm',y='R^2 Score',data=models)
 plt.show()
-
