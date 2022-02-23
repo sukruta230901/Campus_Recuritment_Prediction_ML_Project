@@ -1,4 +1,5 @@
 # Campus-Recuritment-Prediction-Machine-Learning-Project
+
 This repository contains:-
 
 🔹 The readme file which describes what exactly this repository is about.
@@ -14,8 +15,9 @@ Detalied overview of the Dataset and Code section in the project:
 
 The Dataset file is about campus recuritment data in which there are 215 entries of employees specialized in Marketing and HR and Marketing and Finance section. 
 It contains the HSC and SSC percentage, any prior work experience and whether they are placed or not. Based on these factors I've tried to predict the salary of these employees.
-The datset was taken from kaggle site. Here's the link for the dataset:-
-https://www.kaggle.com/benroshan/factors-affecting-campus-placement
+The datset was taken from kaggle site. 
+
+◻ Here's the link for the dataset:- https://www.kaggle.com/benroshan/factors-affecting-campus-placement
 
 
 ### 👩🏻‍💻 Code Section:-
@@ -24,5 +26,5 @@ Here I've performed Exploratory Data Analysis, Data Preprocessing and Visualizat
 Then after Data cleaning and formatting, I've applied Regression algorithms to train the model and predict the salary of employees.
 Regression models like - Linear Regression, Decision Tree Regressor, Random Forest Regressor and XGBoost Regressor were used in this project.
 Also after visualizing the result I've also performed cross-validation to validate my models.
-Find the complete code on this site:-
-https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
+
+◻ Find my complete code on this site:- https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
