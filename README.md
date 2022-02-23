@@ -1,4 +1,4 @@
-# Machine-Learning-Project
+# Campus-Recuritment-Prediction-Machine-Learning-Project
 This repository contains 3 files:-
 1. The readme file which describes what exactly this repository is about.
 2. Data set file on which ML algorithms are applied.
