@@ -27,4 +27,4 @@ Then after Data cleaning and formatting, I've applied Regression algorithms to t
 Regression models like - Linear Regression, Decision Tree Regressor, Random Forest Regressor and XGBoost Regressor were used in this project.
 Also after visualizing the result I've also performed cross-validation to validate my models.
 
-◻ Find my complete code on this site:- https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
+◻ Find my complete code on kaggle:- https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
