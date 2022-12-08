@@ -22,9 +22,9 @@ The datset was taken from kaggle site.
 
 ### 👩🏻‍💻 Code Section:-
 In this section there's a detailed code of performing a Machine Learning project at undergraduate level.
-Here I've performed Exploratory Data Analysis, Data Preprocessing and Visualization. 
-Then after Data cleaning and formatting, I've applied Regression algorithms to train the model and predict the salary of employees.
+Here we've performed Exploratory Data Analysis, Data Preprocessing and Visualization. 
+Then after Data cleaning and formatting, we've applied Regression algorithms to train the model and predict the salary of employees.
 Regression models like - Linear Regression, Decision Tree Regressor, Random Forest Regressor and XGBoost Regressor were used in this project.
-Also after visualizing the result I've also performed cross-validation to validate my models.
+Also after visualizing the result we've also performed cross-validation to validate my models.
 
-◻ Find my complete code on kaggle:- https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
+◻ Find the complete code on kaggle:- https://www.kaggle.com/sukrutapardeshi/campus-recruitment-eda-and-regression-models
